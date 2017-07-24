@@ -32,15 +32,7 @@ for j in products:
 #     WebSitesNew.append(website)
     # WebSitesNew.append("http://www.tripadvisor.ca/Hotel_Review-g155021-d278031-Reviews-Hampton_Inn_Suites_by_Hilton_Windsor-Windsor_Ontario.html#REVIEWS")
 
-# List the first page of the reviews (ends with "#REVIEWS") - separate the websites with ,
-# WebSites = [
-#     "http://www.tripadvisor.ca/Hotel_Review-g155021-d278031-Reviews-or10-Hampton_Inn_Suites_by_Hilton_Windsor-Windsor_Ontario.html#REVIEWS",
-#     # "http://www.tripadvisor.ca/Hotel_Review-g155021-d278031-Reviews-or50-Hampton_Inn_Suites_by_Hilton_Windsor-Windsor_Ontario.html#REVIEWS",
-#     "http://www.tripadvisor.ca/Hotel_Review-g155021-d278031-Reviews-or610-Hampton_Inn_Suites_by_Hilton_Windsor-Windsor_Ontario.html#REVIEWS",
-#     # "https://www.tripadvisor.ca/Hotel_Review-g190479-d3587956-Reviews-or960-The_Thief-Oslo_Eastern_Norway.html#REVIEWS",
-#     # "https://www.tripadvisor.ca/Hotel_Review-g190479-d3587956-Reviews-or20-The_Thief-Oslo_Eastern_Norway.html#REVIEWS",
-#     # "https://www.tripadvisor.ca/Hotel_Review-g190479-d3587956-Reviews-or10-The_Thief-Oslo_Eastern_Norway.html#REVIEWS",
-# ]
+
 
 
 def crawlToCSV(theurl):
@@ -127,17 +119,7 @@ if __name__=='__main__':
     pool.close()
     pool.join()
 
-    # Single process
-    # results = []
-    # for url in WebSites:
-    #     results.append(crawlToCSV(url))
 
-    # file = open("Output.csv", "wb")
-    # file.write(
-    #     b"Organization,Address,Reviewer,Review Title,Review,Review Count,Help Count,Attraction Count,Restaurant Count,Hotel Count,Location,Rating Date,Rating" + b"\n")
-    # file.close()
-
-    # with open(r"~/Desktop/TripAdviser Reviews.csv", "ab") as f:
     with open(products + ".csv", "wt", newline='', encoding="utf8") as f:
         writeFile = csv.writer(f)
         writeFile.writerow(
@@ -149,19 +131,4 @@ if __name__=='__main__':
             except Exception as e:
                 continue
 
-# looping through each site until it hits a break
-# for theurl in WebSites:
-#
-#         file.write(bytes(Record, encoding="ascii", errors='ignore')  + b"\n")
 
-    # link = soup.find_all(attrs={"class": "nav next rndBtn ui_button primary taLnk"})
-    # print(Organization)
-    # if len(link) == 0:
-    #     break
-    # else:
-    #     WebSites.append("http://www.tripadvisor.com" + link[0].get('href'))
-    #     soup = BeautifulSoup(urllib.request.urlopen("http://www.tripadvisor.com" + link[0].get('href')),"html.parser")
-    #     print(link[0].get('href'))
-    #     Checker = link[0].get('href')[-7:]
-
-# file.close()
